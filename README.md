@@ -7,53 +7,51 @@
 Results:
 ```
 ----------- Baseline -----------
-2021-08-11T19:11:36-04:00
+2021-08-11T19:56:42-04:00
 Running ./example-app-baseline
-Run on (32 X 4000.9 MHz CPU s)
+Run on (32 X 3592.81 MHz CPU s)
 CPU Caches:
   L1 Data 32 KiB (x16)
   L1 Instruction 32 KiB (x16)
   L2 Unified 512 KiB (x16)
   L3 Unified 16384 KiB (x4)
-Load Average: 1.89, 1.35, 3.84
+Load Average: 0.71, 0.63, 0.63
 -------------------------------------------------------------------
 Benchmark                         Time             CPU   Iterations
 -------------------------------------------------------------------
-op_call_no_requires_grad        804 ns          804 ns       843810
-op_call                        1516 ns         1517 ns       460224
-op_call_boxed                  1586 ns         1586 ns       437516
+op_call_no_requires_grad        699 ns          699 ns       962985
+op_call                         679 ns          679 ns      1002686
+op_call_boxed                   736 ns          736 ns       961718
 ----------- Templated -----------
-2021-08-11T19:11:39-04:00
+2021-08-11T19:56:45-04:00
 Running ./example-app-templated
-Run on (32 X 3592.73 MHz CPU s)
+Run on (32 X 3598.34 MHz CPU s)
 CPU Caches:
   L1 Data 32 KiB (x16)
   L1 Instruction 32 KiB (x16)
   L2 Unified 512 KiB (x16)
   L3 Unified 16384 KiB (x4)
-Load Average: 1.82, 1.34, 3.82
+Load Average: 0.71, 0.63, 0.63
 -------------------------------------------------------------------
 Benchmark                         Time             CPU   Iterations
 -------------------------------------------------------------------
-op_call_no_requires_grad        838 ns          838 ns       830875
-op_call                        1639 ns         1639 ns       425610
-op_call_boxed                  1691 ns         1691 ns       412156
+op_call_no_requires_grad        847 ns          847 ns       820522
+op_call                        1659 ns         1659 ns       421860
+op_call_boxed                  1707 ns         1707 ns       404835
 ----------- Boxed -----------
-2021-08-11T19:11:41-04:00
+2021-08-11T19:56:48-04:00
 Running ./example-app-boxed
-Run on (32 X 3781.05 MHz CPU s)
+Run on (32 X 4155.37 MHz CPU s)
 CPU Caches:
   L1 Data 32 KiB (x16)
   L1 Instruction 32 KiB (x16)
   L2 Unified 512 KiB (x16)
   L3 Unified 16384 KiB (x4)
-Load Average: 1.82, 1.34, 3.82
+Load Average: 0.73, 0.64, 0.63
 -------------------------------------------------------------------
 Benchmark                         Time             CPU   Iterations
 -------------------------------------------------------------------
-op_call_no_requires_grad        909 ns          909 ns       783265
-op_call                        1688 ns         1688 ns       413550
-op_call_boxed                  1683 ns         1683 ns       421396
+op_call_no_requires_grad        910 ns          910 ns       759083
+op_call                        1725 ns         1725 ns       405478
+op_call_boxed                  1715 ns         1715 ns       408859
 ```
-
-Note: this is probably not the best baseline since if it is still running as an AutogradCompositeImplicit op it is still building the graph and possibly dispatching into more autograd kernels, but still an interesting point of comparison.
